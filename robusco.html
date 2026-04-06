@@ -1,0 +1,1271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Robusco — Shopify E-Commerce Development Agency</title>
+<meta name="description" content="Robusco is a new Shopify agency built by founders with 60+ combined projects delivered. Specialist store development, Shopify Plus, Hydrogen and CRO.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+/* ─── RESET & BASE ─── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: #F7F5F0;
+  color: #0D0D0B;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+a { text-decoration: none; color: inherit; }
+button { font-family: inherit; cursor: pointer; }
+img { display: block; max-width: 100%; }
+
+/* ─── CSS VARIABLES ─── */
+:root {
+  --cream: #F7F5F0;
+  --ink: #0D0D0B;
+  --ink-light: #6B6862;
+  --ink-faint: #B0AA9F;
+  --border: #DDD9D0;
+  --terra: #C17B4E;
+  --terra-light: #F5EDE6;
+  --terra-dark: #9B5E35;
+  --serif: 'DM Serif Display', serif;
+  --sans: 'DM Sans', sans-serif;
+}
+
+/* ─── NAV ─── */
+.nav {
+  position: sticky; top: 0; z-index: 200;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 48px; height: 64px;
+  background: rgba(247,245,240,0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 0.5px solid var(--border);
+}
+.nav-logo {
+  font-family: var(--serif);
+  font-size: 20px; letter-spacing: -0.4px; color: var(--ink);
+}
+.nav-logo span { font-style: italic; color: var(--terra); }
+.nav-links { display: flex; gap: 32px; list-style: none; }
+.nav-links a {
+  font-size: 13px; color: var(--ink-light); font-weight: 400;
+  transition: color .2s; letter-spacing: .01em;
+}
+.nav-links a:hover { color: var(--ink); }
+.nav-right { display: flex; align-items: center; gap: 20px; }
+.nav-badge {
+  font-size: 10px; color: var(--terra); letter-spacing: .1em;
+  text-transform: uppercase; font-weight: 400;
+  background: var(--terra-light); padding: 4px 10px;
+}
+.nav-cta {
+  font-size: 13px; font-weight: 400; color: var(--cream);
+  background: var(--ink); border: none;
+  padding: 9px 22px; transition: background .2s;
+}
+.nav-cta:hover { background: var(--terra); }
+
+/* ─── HERO ─── */
+.hero {
+  display: grid; grid-template-columns: 1.1fr 0.9fr;
+  padding: 88px 48px 0; gap: 80px;
+  border-bottom: 0.5px solid var(--border);
+  min-height: 92vh; align-items: start;
+}
+.hero-kicker {
+  font-size: 10px; font-weight: 400; color: var(--ink-faint);
+  letter-spacing: .16em; text-transform: uppercase;
+  margin-bottom: 40px;
+  display: flex; align-items: center; gap: 10px;
+}
+.hero-kicker::before {
+  content: ''; width: 24px; height: 0.5px;
+  background: var(--terra); display: block;
+}
+.hero-h1 {
+  font-family: var(--serif);
+  font-size: clamp(42px, 5.2vw, 76px);
+  font-weight: 400; line-height: 1.03; letter-spacing: -2.5px;
+  color: var(--ink); margin-bottom: 48px;
+}
+.hero-h1 em { font-style: italic; color: var(--terra); }
+.hero-ctas { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+.btn-primary {
+  background: var(--ink); color: var(--cream);
+  border: none; padding: 14px 32px;
+  font-size: 13px; font-weight: 400; letter-spacing: .02em;
+  transition: background .2s, transform .15s;
+  display: inline-flex; align-items: center; gap: 8px;
+}
+.btn-primary:hover { background: var(--terra); transform: translateY(-1px); }
+.btn-ghost {
+  background: transparent; color: var(--ink);
+  border: 0.5px solid var(--border);
+  padding: 14px 32px; font-size: 13px; font-weight: 400;
+  transition: border-color .2s, color .2s;
+}
+.btn-ghost:hover { border-color: var(--ink); }
+
+.hero-right {
+  display: flex; flex-direction: column;
+  justify-content: flex-start;
+  padding-top: 8px; padding-bottom: 64px;
+  border-left: 0.5px solid var(--border);
+  padding-left: 64px;
+}
+.hero-right-label {
+  font-size: 10px; letter-spacing: .14em; color: var(--ink-faint);
+  text-transform: uppercase; margin-bottom: 28px; font-weight: 400;
+}
+.hero-honest-box {
+  background: var(--terra-light);
+  border: 0.5px solid #E8D5C4;
+  padding: 28px 28px 24px;
+  margin-bottom: 40px;
+}
+.hero-honest-box-title {
+  font-family: var(--serif); font-size: 18px;
+  letter-spacing: -.3px; margin-bottom: 12px; color: var(--ink);
+}
+.hero-honest-box-title em { font-style: italic; color: var(--terra); }
+.hero-honest-box p {
+  font-size: 14px; color: #7A6355; line-height: 1.75; font-weight: 300;
+}
+.hero-sub {
+  font-size: 15px; font-weight: 300; color: var(--ink-light);
+  line-height: 1.8; margin-bottom: 36px;
+}
+.hero-link {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 13px; color: var(--ink); font-weight: 400;
+  border-bottom: 0.5px solid var(--ink); padding-bottom: 2px;
+  width: fit-content; transition: opacity .2s;
+}
+.hero-link:hover { opacity: .5; }
+
+/* ─── ACCENT BAND ─── */
+.accent-band {
+  background: var(--ink);
+  padding: 20px 48px;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 16px;
+}
+.accent-band-left {
+  font-family: var(--serif); font-style: italic;
+  font-size: 19px; color: var(--cream); letter-spacing: -.3px;
+}
+.accent-band-left strong { font-style: normal; color: var(--terra); font-weight: 400; }
+.accent-band-pills { display: flex; gap: 10px; flex-wrap: wrap; }
+.ab-pill {
+  font-size: 10px; color: rgba(247,245,240,.45);
+  border: 0.5px solid rgba(247,245,240,.15);
+  padding: 5px 12px; letter-spacing: .08em; font-weight: 400;
+}
+
+/* ─── STATS ─── */
+.stats {
+  display: grid; grid-template-columns: repeat(4,1fr);
+  border-bottom: 0.5px solid var(--border);
+}
+.stat {
+  padding: 36px 48px;
+  border-right: 0.5px solid var(--border);
+}
+.stat:last-child { border-right: none; }
+.stat-num {
+  font-family: var(--serif);
+  font-size: 44px; letter-spacing: -2.5px; color: var(--ink);
+  line-height: 1; margin-bottom: 6px;
+}
+.stat-num em { font-style: italic; color: var(--terra); font-size: .75em; }
+.stat-lbl { font-size: 11px; color: var(--ink-faint); font-weight: 400; letter-spacing: .03em; }
+.stat-note { font-size: 10px; color: #C8C2B8; margin-top: 4px; font-style: italic; }
+
+/* ─── TICKER ─── */
+.ticker-wrap {
+  overflow: hidden;
+  border-bottom: 0.5px solid var(--border);
+  padding: 18px 0;
+}
+.ticker-kicker {
+  text-align: center; font-size: 10px; color: #C8C2B8;
+  letter-spacing: .14em; text-transform: uppercase; margin-bottom: 14px;
+}
+.ticker-track {
+  display: flex; width: max-content;
+  animation: tick 36s linear infinite;
+}
+.ticker-track:hover { animation-play-state: paused; }
+@keyframes tick { from { transform: translateX(0) } to { transform: translateX(-50%) } }
+.ticker-item {
+  font-family: var(--serif); font-size: 15px;
+  color: #C8C2B8; padding: 0 36px; white-space: nowrap;
+}
+
+/* ─── SECTION COMMON ─── */
+.section-pad { padding: 88px 48px 0; }
+.section-header {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 80px; margin-bottom: 0;
+  padding-bottom: 44px; border-bottom: 0.5px solid var(--border);
+}
+.section-h2 {
+  font-family: var(--serif);
+  font-size: clamp(30px, 3.4vw, 50px);
+  font-weight: 400; letter-spacing: -1.5px; line-height: 1.07;
+}
+.section-h2 em { font-style: italic; color: var(--terra); }
+.section-sub {
+  font-size: 14px; color: var(--ink-light); font-weight: 300;
+  line-height: 1.8; align-self: end; padding-bottom: 4px;
+}
+.section-link {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 13px; color: var(--ink); border-bottom: 0.5px solid var(--border);
+  padding-bottom: 2px; margin-top: 20px; transition: border-color .2s;
+}
+.section-link:hover { border-color: var(--ink); }
+
+/* ─── FOUNDERS SECTION ─── */
+.founders { padding: 88px 48px 0; }
+.founders-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  margin-top: 0; border-top: 0.5px solid var(--border);
+}
+.founder-card {
+  padding: 48px 40px;
+  border-right: 0.5px solid var(--border);
+  transition: background .3s;
+}
+.founder-card:last-child { border-right: none; }
+.founder-card:hover { background: #F2EFE9; }
+.founder-avatar {
+  width: 56px; height: 56px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--serif); font-size: 20px;
+  margin-bottom: 24px; border: 0.5px solid var(--border);
+}
+.av-terra { background: var(--terra-light); color: var(--terra); }
+.av-slate { background: #E6ECF5; color: #4E6EA0; }
+.founder-name {
+  font-family: var(--serif); font-size: 24px;
+  letter-spacing: -.5px; margin-bottom: 4px; color: var(--ink);
+}
+.founder-title {
+  font-size: 12px; color: var(--terra); letter-spacing: .06em;
+  text-transform: uppercase; font-weight: 400; margin-bottom: 20px;
+}
+.founder-bio {
+  font-size: 14px; color: var(--ink-light); line-height: 1.8;
+  font-weight: 300; margin-bottom: 28px;
+}
+.founder-stats { display: flex; gap: 24px; flex-wrap: wrap; }
+.founder-stat-num {
+  font-family: var(--serif); font-size: 28px;
+  letter-spacing: -1px; color: var(--ink);
+}
+.founder-stat-num span { color: var(--terra); }
+.founder-stat-lbl { font-size: 11px; color: var(--ink-faint); margin-top: 2px; }
+
+/* ─── PAST WORK ─── */
+.past-work { padding: 88px 48px 0; }
+.past-work-intro {
+  background: var(--terra-light);
+  border: 0.5px solid #E8D5C4;
+  padding: 24px 28px;
+  margin-bottom: 0;
+  display: flex; align-items: flex-start; gap: 16px;
+}
+.past-work-intro-icon {
+  font-family: var(--serif); font-style: italic;
+  font-size: 28px; color: var(--terra); line-height: 1; flex-shrink: 0;
+  padding-top: 2px;
+}
+.past-work-intro p {
+  font-size: 13px; color: #7A6355; line-height: 1.7; font-weight: 300;
+}
+.past-work-intro strong { font-weight: 500; color: var(--terra-dark); }
+
+.work-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  border-top: 0.5px solid var(--border);
+  border-left: 0.5px solid var(--border);
+  margin-top: 0;
+}
+.wc {
+  border-right: 0.5px solid var(--border);
+  border-bottom: 0.5px solid var(--border);
+  overflow: hidden; cursor: pointer; position: relative;
+}
+.wc-large { grid-column: 1/2; grid-row: 1/3; }
+.wc-visual {
+  position: relative; overflow: hidden;
+}
+.wc-large .wc-visual { height: 520px; }
+.wc .wc-visual { height: 252px; }
+.wc-bg {
+  position: absolute; inset: 0;
+  transition: transform .6s cubic-bezier(.25,.46,.45,.94);
+}
+.wc:hover .wc-bg { transform: scale(1.06); }
+.wc-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(10,8,6,.7) 0%, rgba(10,8,6,.05) 60%);
+}
+.wc-info {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 24px;
+}
+.wc-tags { display: flex; gap: 5px; margin-bottom: 8px; flex-wrap: wrap; }
+.wc-tag {
+  font-size: 10px; color: rgba(247,245,240,.55);
+  border: 0.5px solid rgba(247,245,240,.2);
+  padding: 2px 8px; letter-spacing: .04em;
+}
+.wc-name {
+  font-family: var(--serif); font-size: 22px;
+  letter-spacing: -.5px; color: #fff; line-height: 1.15;
+}
+.wc-result {
+  font-size: 11px; color: rgba(247,245,240,.5);
+  margin-top: 4px; font-weight: 300; font-style: italic;
+}
+.wc-attr {
+  font-size: 9px; color: rgba(247,245,240,.3);
+  margin-top: 8px; letter-spacing: .06em; text-transform: uppercase;
+}
+.wc-card-body { padding: 24px 24px 20px; }
+.wc-card-name {
+  font-family: var(--serif); font-size: 18px;
+  letter-spacing: -.4px; margin-bottom: 6px;
+}
+.wc-card-tags { display: flex; gap: 5px; flex-wrap: wrap; margin-bottom: 8px; }
+.wc-card-tag {
+  font-size: 10px; color: var(--ink-faint);
+  border: 0.5px solid var(--border); padding: 2px 7px; letter-spacing: .04em;
+}
+.wc-card-result { font-size: 12px; color: var(--terra); font-weight: 400; }
+.wc-card-attr {
+  font-size: 10px; color: #C8C2B8;
+  margin-top: 6px; font-style: italic;
+}
+.wc-card-fill { height: 140px; }
+.wc-arrow-btn {
+  position: absolute; top: 14px; right: 14px;
+  width: 30px; height: 30px;
+  background: rgba(247,245,240,.9);
+  border: 0.5px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; opacity: 0;
+  transition: opacity .25s;
+}
+.wc:hover .wc-arrow-btn { opacity: 1; }
+
+/* ─── SERVICES ─── */
+.services { padding: 88px 48px 0; }
+.services-cards {
+  display: grid; grid-template-columns: repeat(4,1fr);
+  border-top: 0.5px solid var(--border);
+}
+.sc {
+  padding: 36px 28px 32px;
+  border-right: 0.5px solid var(--border);
+  border-bottom: 0.5px solid var(--border);
+  min-height: 240px; display: flex; flex-direction: column;
+  justify-content: space-between; transition: filter .25s; cursor: pointer;
+}
+.sc:nth-child(4n) { border-right: none; }
+.sc:nth-child(n+5) { border-bottom: none; }
+.sc:hover { filter: brightness(.95); }
+.sc:hover .sc-arrow { transform: translate(3px,-3px); color: var(--ink); border-color: var(--ink); }
+.sc-1 { background: #F5EDE6; }
+.sc-2 { background: #E6ECF5; }
+.sc-3 { background: #E8F0EC; }
+.sc-4 { background: #F5EAE6; }
+.sc-5 { background: #EDF0E6; }
+.sc-6 { background: #EDE6F5; }
+.sc-7 { background: #F5F0E6; }
+.sc-8 { background: #E6F0F5; }
+.sc-num { font-size: 10px; color: #C8C2B8; letter-spacing: .1em; margin-bottom: 36px; font-weight: 400; }
+.sc-title { font-family: var(--serif); font-size: 19px; letter-spacing: -.4px; color: var(--ink); line-height: 1.2; margin-bottom: 8px; }
+.sc-desc { font-size: 12px; color: #999; line-height: 1.65; font-weight: 300; }
+.sc-arrow {
+  font-size: 12px; color: #C8C2B8; margin-top: auto; padding-top: 20px;
+  width: 26px; height: 26px; border-radius: 50%;
+  border: 0.5px solid #DDD9D0;
+  display: flex; align-items: center; justify-content: center;
+  transition: transform .2s, color .2s, border-color .2s;
+}
+
+/* ─── CONTRAST SPLIT ─── */
+.contrast-split {
+  display: grid; grid-template-columns: 1fr 1fr;
+  border-top: 0.5px solid var(--border);
+}
+.cs-dark {
+  background: var(--ink); padding: 64px 48px;
+  display: flex; flex-direction: column; justify-content: space-between;
+  min-height: 320px;
+}
+.cs-dark-eyebrow {
+  font-size: 10px; color: rgba(247,245,240,.3);
+  letter-spacing: .14em; text-transform: uppercase; margin-bottom: 24px;
+}
+.cs-dark-h {
+  font-family: var(--serif); font-size: clamp(26px,3vw,42px);
+  font-weight: 400; letter-spacing: -1px; color: var(--cream);
+  line-height: 1.1; margin-bottom: 16px;
+}
+.cs-dark-h em { font-style: italic; color: var(--terra); }
+.cs-dark-sub {
+  font-size: 14px; color: rgba(247,245,240,.45);
+  line-height: 1.75; font-weight: 300; max-width: 360px;
+}
+.cs-dark-link {
+  font-size: 13px; color: var(--terra);
+  border-bottom: 0.5px solid var(--terra-dark);
+  padding-bottom: 2px; width: fit-content;
+  transition: opacity .2s; margin-top: 32px;
+}
+.cs-dark-link:hover { opacity: .6; }
+.cs-terra {
+  background: var(--terra); padding: 64px 48px;
+  display: flex; flex-direction: column; justify-content: space-between;
+  min-height: 320px;
+}
+.cs-terra-big {
+  font-family: var(--serif); font-size: 88px; letter-spacing: -5px;
+  color: rgba(247,237,227,.18); line-height: 1; margin-bottom: auto;
+}
+.cs-terra-text {
+  font-family: var(--serif); font-style: italic;
+  font-size: 24px; color: #F7EDE3; letter-spacing: -.5px;
+  line-height: 1.3; margin-bottom: 10px;
+}
+.cs-terra-sub { font-size: 12px; color: rgba(247,237,227,.5); font-weight: 300; }
+
+/* ─── COMPARISON TABLE ─── */
+.compare { padding: 88px 48px 0; }
+.compare-table {
+  width: 100%; border-collapse: collapse;
+  border: 0.5px solid var(--border);
+  margin-top: 0; font-size: 13px;
+}
+.compare-table th {
+  padding: 18px 28px; text-align: left;
+  border-bottom: 0.5px solid var(--border);
+  font-weight: 400; font-size: 11px; letter-spacing: .06em;
+  color: var(--ink-faint); text-transform: uppercase;
+}
+.compare-table th:first-child { border-right: 0.5px solid var(--border); width: 40%; }
+.compare-table th:nth-child(2) { border-right: 0.5px solid var(--border); background: #F2EFE9; }
+.compare-table th:nth-child(3) { background: var(--terra-light); color: var(--terra); }
+.compare-table td {
+  padding: 16px 28px; border-bottom: 0.5px solid var(--border);
+  vertical-align: top; line-height: 1.6;
+}
+.compare-table td:first-child {
+  border-right: 0.5px solid var(--border);
+  color: var(--ink-light); font-weight: 300;
+}
+.compare-table td:nth-child(2) {
+  border-right: 0.5px solid var(--border);
+  color: #999; background: #F2EFE9; font-style: italic;
+}
+.compare-table td:nth-child(3) {
+  background: var(--terra-light); color: var(--terra-dark);
+  font-weight: 400;
+}
+.compare-table tr:last-child td { border-bottom: none; }
+.check { color: var(--terra); font-size: 14px; margin-right: 6px; }
+.cross { color: #C8C2B8; font-size: 14px; margin-right: 6px; }
+
+/* ─── AUDIT CTA ─── */
+.audit-cta {
+  margin: 0 48px;
+  border: 0.5px solid var(--border);
+  background: var(--terra-light);
+  padding: 52px 48px;
+  display: grid; grid-template-columns: 1fr auto;
+  gap: 48px; align-items: center;
+}
+.audit-cta-eyebrow {
+  font-size: 10px; color: var(--terra); letter-spacing: .12em;
+  text-transform: uppercase; margin-bottom: 14px;
+}
+.audit-cta-h {
+  font-family: var(--serif); font-size: clamp(24px,3vw,38px);
+  font-weight: 400; letter-spacing: -1px; color: var(--ink);
+  line-height: 1.1; margin-bottom: 14px;
+}
+.audit-cta-h em { font-style: italic; color: var(--terra); }
+.audit-cta-sub { font-size: 14px; color: #7A6355; line-height: 1.7; font-weight: 300; max-width: 480px; }
+.audit-cta-right { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; flex-shrink: 0; }
+.audit-note { font-size: 11px; color: #B0A090; font-style: italic; }
+
+/* ─── PROCESS ─── */
+.process { padding: 88px 48px 0; }
+.process-steps {
+  display: grid; grid-template-columns: repeat(3,1fr);
+  border-top: 0.5px solid var(--border);
+}
+.process-step {
+  padding: 40px 32px 36px;
+  border-right: 0.5px solid var(--border);
+  border-bottom: 0.5px solid var(--border);
+}
+.process-step:nth-child(3n) { border-right: none; }
+.process-step:nth-child(n+4) { border-bottom: none; }
+.ps-num {
+  font-family: var(--serif); font-size: 40px;
+  letter-spacing: -2px; color: #E8E4DC;
+  line-height: 1; margin-bottom: 20px;
+}
+.ps-title {
+  font-family: var(--serif); font-size: 19px;
+  letter-spacing: -.4px; margin-bottom: 10px; color: var(--ink);
+}
+.ps-desc { font-size: 13px; color: var(--ink-light); line-height: 1.75; font-weight: 300; }
+.ps-duration {
+  font-size: 10px; color: var(--terra); letter-spacing: .08em;
+  text-transform: uppercase; margin-top: 16px; font-weight: 400;
+}
+
+/* ─── TESTIMONIALS PLACEHOLDER ─── */
+.social-proof { padding: 88px 48px 0; }
+.proof-note {
+  background: var(--ink); color: var(--cream);
+  padding: 48px; text-align: center;
+  border-top: 0.5px solid rgba(247,245,240,.08);
+}
+.proof-note-h {
+  font-family: var(--serif); font-style: italic;
+  font-size: clamp(22px, 3vw, 38px); letter-spacing: -1px;
+  color: var(--cream); margin-bottom: 16px; line-height: 1.15;
+}
+.proof-note-sub { font-size: 14px; color: rgba(247,245,240,.45); line-height: 1.7; max-width: 540px; margin: 0 auto 32px; }
+.proof-note-cta { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+.proof-slots {
+  display: grid; grid-template-columns: repeat(3,1fr);
+  border-top: 0.5px solid var(--border);
+}
+.proof-slot {
+  padding: 40px 32px 36px;
+  border-right: 0.5px solid var(--border);
+  min-height: 200px; display: flex; flex-direction: column;
+  justify-content: space-between;
+}
+.proof-slot:last-child { border-right: none; }
+.proof-slot-q {
+  font-family: var(--serif); font-size: 48px;
+  color: #EDE8E0; line-height: .75; margin-bottom: 16px;
+}
+.proof-slot-placeholder {
+  font-size: 13px; color: #C8C2B8; font-style: italic;
+  line-height: 1.7; font-weight: 300;
+}
+.proof-slot-badge {
+  display: inline-block;
+  background: var(--terra-light); color: var(--terra);
+  font-size: 10px; padding: 4px 10px;
+  letter-spacing: .06em; margin-top: 20px; font-weight: 400;
+  text-transform: uppercase;
+}
+
+/* ─── CREDENTIALS ─── */
+.credentials { padding: 64px 48px; border-top: 0.5px solid var(--border); }
+.cred-inner {
+  display: flex; align-items: center; gap: 48px; flex-wrap: wrap;
+}
+.cred-label {
+  font-family: var(--serif); font-size: 22px;
+  font-weight: 400; letter-spacing: -.4px; flex-shrink: 0;
+}
+.cred-divider { width: 0.5px; height: 48px; background: var(--border); flex-shrink: 0; }
+.cred-list { display: flex; gap: 12px; flex-wrap: wrap; }
+.cred-pill {
+  padding: 10px 18px; border: 0.5px solid var(--border);
+  font-size: 11px; color: #999; font-weight: 400; letter-spacing: .04em;
+  background: var(--cream); transition: border-color .2s, color .2s;
+}
+.cred-pill:hover { border-color: var(--terra); color: var(--terra); }
+.cred-pill strong { display: block; font-size: 13px; font-weight: 400; color: var(--ink); margin-bottom: 2px; }
+
+/* ─── CONTACT ─── */
+.contact { padding: 88px 48px 0; }
+.contact-inner {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border: 0.5px solid var(--border);
+}
+.contact-left {
+  padding: 56px 48px;
+  border-right: 0.5px solid var(--border);
+}
+.contact-eyebrow {
+  font-size: 10px; color: var(--terra); letter-spacing: .12em;
+  text-transform: uppercase; margin-bottom: 24px;
+  display: flex; align-items: center; gap: 10px;
+}
+.contact-eyebrow::before {
+  content: ''; width: 20px; height: 0.5px; background: var(--terra);
+}
+.contact-h {
+  font-family: var(--serif); font-size: clamp(28px, 3.2vw, 46px);
+  font-weight: 400; letter-spacing: -1.5px; line-height: 1.07;
+  margin-bottom: 20px;
+}
+.contact-h em { font-style: italic; color: var(--terra); }
+.contact-sub { font-size: 14px; color: var(--ink-light); line-height: 1.8; margin-bottom: 40px; font-weight: 300; }
+.contact-detail { display: flex; flex-direction: column; gap: 14px; }
+.contact-detail-item { display: flex; gap: 14px; align-items: flex-start; }
+.cd-label { font-size: 10px; color: var(--ink-faint); letter-spacing: .1em; text-transform: uppercase; width: 60px; flex-shrink: 0; padding-top: 2px; }
+.cd-val { font-size: 14px; color: var(--ink); font-weight: 400; }
+.contact-right { padding: 56px 48px; background: #F2EFE9; }
+.form-group { margin-bottom: 24px; }
+.form-label { font-size: 11px; color: var(--ink-faint); letter-spacing: .08em; text-transform: uppercase; display: block; margin-bottom: 8px; }
+.form-input, .form-textarea, .form-select {
+  width: 100%; background: var(--cream); border: 0.5px solid var(--border);
+  padding: 12px 16px; font-family: var(--sans); font-size: 14px;
+  color: var(--ink); font-weight: 300; outline: none;
+  transition: border-color .2s; -webkit-appearance: none;
+}
+.form-input:focus, .form-textarea:focus, .form-select:focus {
+  border-color: var(--terra);
+}
+.form-textarea { resize: vertical; min-height: 100px; line-height: 1.6; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-submit {
+  width: 100%; background: var(--ink); color: var(--cream);
+  border: none; padding: 16px;
+  font-size: 14px; font-weight: 400; letter-spacing: .03em;
+  transition: background .2s; margin-top: 8px;
+}
+.form-submit:hover { background: var(--terra); }
+.form-note { font-size: 11px; color: #C8C2B8; margin-top: 12px; line-height: 1.6; }
+
+/* ─── FOOTER ─── */
+.footer-top {
+  border-top: 0.5px solid var(--border);
+  padding: 56px 48px 0;
+  display: grid; grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 40px;
+}
+.footer-brand {}
+.footer-logo { font-family: var(--serif); font-size: 22px; color: var(--ink); margin-bottom: 12px; }
+.footer-logo span { font-style: italic; color: var(--terra); }
+.footer-tagline { font-size: 13px; color: var(--ink-faint); font-weight: 300; line-height: 1.7; }
+.footer-col-title { font-size: 10px; color: var(--ink-faint); letter-spacing: .12em; text-transform: uppercase; margin-bottom: 20px; font-weight: 400; }
+.footer-col-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.footer-col-links a { font-size: 13px; color: var(--ink-light); font-weight: 300; transition: color .2s; }
+.footer-col-links a:hover { color: var(--terra); }
+.footer-bottom {
+  padding: 24px 48px;
+  display: flex; align-items: center; justify-content: space-between;
+  border-top: 0.5px solid var(--border); margin-top: 48px;
+  flex-wrap: wrap; gap: 12px;
+}
+.footer-copy { font-size: 11px; color: #C8C2B8; font-weight: 300; }
+.footer-legal { display: flex; gap: 20px; }
+.footer-legal a { font-size: 11px; color: #C8C2B8; transition: color .2s; }
+.footer-legal a:hover { color: var(--ink); }
+
+/* ─── ANIMATIONS ─── */
+.rr { opacity: 0; transform: translateY(30px); transition: opacity .75s cubic-bezier(.22,.61,.36,1), transform .75s cubic-bezier(.22,.61,.36,1); }
+.rr.in { opacity: 1; transform: none; }
+.rr-l { opacity: 0; transform: translateX(-30px); transition: opacity .75s cubic-bezier(.22,.61,.36,1), transform .75s cubic-bezier(.22,.61,.36,1); }
+.rr-l.in { opacity: 1; transform: none; }
+.rr-r { opacity: 0; transform: translateX(30px); transition: opacity .75s cubic-bezier(.22,.61,.36,1), transform .75s cubic-bezier(.22,.61,.36,1); }
+.rr-r.in { opacity: 1; transform: none; }
+.rr-sc { opacity: 0; transform: scale(.97); transition: opacity .7s cubic-bezier(.22,.61,.36,1), transform .7s cubic-bezier(.22,.61,.36,1); }
+.rr-sc.in { opacity: 1; transform: none; }
+.stag > * { opacity: 0; transform: translateY(22px); transition: opacity .6s cubic-bezier(.22,.61,.36,1), transform .6s cubic-bezier(.22,.61,.36,1); }
+.stag.in > * { opacity: 1; transform: none; }
+.stag.in > *:nth-child(1)  { transition-delay: .00s }
+.stag.in > *:nth-child(2)  { transition-delay: .07s }
+.stag.in > *:nth-child(3)  { transition-delay: .14s }
+.stag.in > *:nth-child(4)  { transition-delay: .21s }
+.stag.in > *:nth-child(5)  { transition-delay: .28s }
+.stag.in > *:nth-child(6)  { transition-delay: .35s }
+.stag.in > *:nth-child(7)  { transition-delay: .42s }
+.stag.in > *:nth-child(8)  { transition-delay: .49s }
+</style>
+</head>
+<body>
+
+<!-- ─── NAV ─── -->
+<nav class="nav">
+  <div class="nav-logo">Robu<span>sco</span></div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#founders">Founders</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <span class="nav-badge">Shopify Partner</span>
+    <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get free audit</button>
+  </div>
+</nav>
+
+<!-- ─── HERO ─── -->
+<section class="hero">
+  <div class="hero-left rr-l">
+    <div class="hero-kicker">Shopify E-Commerce Development</div>
+    <h1 class="hero-h1">We've built Shopify stores for years. Now we're doing it under <em>our own name.</em></h1>
+    <div class="hero-ctas">
+      <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get a free store audit →</button>
+      <button class="btn-ghost" onclick="document.getElementById('work').scrollIntoView({behavior:'smooth'})">See our founders' work</button>
+    </div>
+  </div>
+  <div class="hero-right rr-r">
+    <div class="hero-right-label">Why Robusco</div>
+    <div class="hero-honest-box">
+      <div class="hero-honest-box-title">New agency. <em>Not new to this.</em></div>
+      <p>Robusco is freshly independent — but our founders have delivered 60+ Shopify projects across fashion, health, lifestyle and B2B before going on their own. Same craft, no agency overhead, total focus on your store.</p>
+    </div>
+    <p class="hero-sub">We left the big agencies to do better work for fewer clients. You get the founders on your project — not a junior handed the brief on day three.</p>
+    <a href="#founders" class="hero-link">Meet the founders ↓</a>
+  </div>
+</section>
+
+<!-- ─── ACCENT BAND ─── -->
+<div class="accent-band rr">
+  <span class="accent-band-left">Certified Shopify Partners — <strong>experienced, independent, and focused.</strong></span>
+  <div class="accent-band-pills">
+    <span class="ab-pill">Shopify</span>
+    <span class="ab-pill">Shopify Plus</span>
+    <span class="ab-pill">Hydrogen</span>
+    <span class="ab-pill">Oxygen</span>
+    <span class="ab-pill">Liquid</span>
+  </div>
+</div>
+
+<!-- ─── STATS ─── -->
+<div class="stats stag">
+  <div class="stat">
+    <div class="stat-num">60<em>+</em></div>
+    <div class="stat-lbl">Shopify projects delivered</div>
+    <div class="stat-note">By our founders, combined</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">8<em>yr</em></div>
+    <div class="stat-lbl">Shopify expertise</div>
+    <div class="stat-note">Across Liquid, Plus & Hydrogen</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">3.4<em>×</em></div>
+    <div class="stat-lbl">Average CRO lift on rebuilds</div>
+    <div class="stat-note">Across past client projects</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">5<em>day</em></div>
+    <div class="stat-lbl">Audit to proposal turnaround</div>
+    <div class="stat-note">No 6-week discovery phases</div>
+  </div>
+</div>
+
+<!-- ─── TICKER ─── -->
+<div class="ticker-wrap">
+  <div class="ticker-kicker">Industries we have delivered Shopify stores in</div>
+  <div class="ticker-track">
+    <span class="ticker-item">Fashion & Apparel ·</span>
+    <span class="ticker-item">Health & Wellness ·</span>
+    <span class="ticker-item">Food & Drink ·</span>
+    <span class="ticker-item">Electronics ·</span>
+    <span class="ticker-item">Beauty & Skincare ·</span>
+    <span class="ticker-item">Lifestyle & Home ·</span>
+    <span class="ticker-item">Sport & Fitness ·</span>
+    <span class="ticker-item">B2B Wholesale ·</span>
+    <span class="ticker-item">Fashion & Apparel ·</span>
+    <span class="ticker-item">Health & Wellness ·</span>
+    <span class="ticker-item">Food & Drink ·</span>
+    <span class="ticker-item">Electronics ·</span>
+    <span class="ticker-item">Beauty & Skincare ·</span>
+    <span class="ticker-item">Lifestyle & Home ·</span>
+    <span class="ticker-item">Sport & Fitness ·</span>
+    <span class="ticker-item">B2B Wholesale ·</span>
+  </div>
+</div>
+
+<!-- ─── FOUNDERS ─── -->
+<section class="founders" id="founders">
+  <div class="section-header">
+    <h2 class="section-h2 rr-l">The founders you'll be working with — <em>directly.</em></h2>
+    <div class="rr-r">
+      <p class="section-sub">At Robusco, you don't get account managers or junior developers handed your brief. Every project is run by the people who built the company. Here's who that is.</p>
+    </div>
+  </div>
+  <div class="founders-grid stag">
+    <div class="founder-card">
+      <div class="founder-avatar av-terra">AR</div>
+      <div class="founder-name">Arjun Rawal</div>
+      <div class="founder-title">Co-Founder · Shopify Development Lead</div>
+      <p class="founder-bio">Arjun has spent eight years as a Shopify developer — first at a London agency, then as a senior freelancer working with DTC brands across fashion and health. He has personally built over 35 Shopify stores from scratch, including four on Shopify Plus. He writes the Liquid, leads the architecture, and won't hand your project to anyone else.</p>
+      <div class="founder-stats">
+        <div>
+          <div class="founder-stat-num">35<span>+</span></div>
+          <div class="founder-stat-lbl">Stores personally built</div>
+        </div>
+        <div>
+          <div class="founder-stat-num">4<span>×</span></div>
+          <div class="founder-stat-lbl">Shopify Plus launches</div>
+        </div>
+        <div>
+          <div class="founder-stat-num">8<span>yr</span></div>
+          <div class="founder-stat-lbl">Shopify experience</div>
+        </div>
+      </div>
+    </div>
+    <div class="founder-card">
+      <div class="founder-avatar av-slate">PK</div>
+      <div class="founder-name">Priya Kulkarni</div>
+      <div class="founder-title">Co-Founder · Strategy & CRO Lead</div>
+      <p class="founder-bio">Priya spent six years running e-commerce strategy and conversion optimisation at a growth agency, working across 25+ Shopify brands. She's the one who digs into your analytics, finds why visitors aren't buying, and builds the case for every design and UX decision. She has taken stores from 1.2% to 3.4% conversion — and she'll show you the data that proves it.</p>
+      <div class="founder-stats">
+        <div>
+          <div class="founder-stat-num">25<span>+</span></div>
+          <div class="founder-stat-lbl">Brands optimised</div>
+        </div>
+        <div>
+          <div class="founder-stat-num">3.4<span>×</span></div>
+          <div class="founder-stat-lbl">Avg conversion uplift</div>
+        </div>
+        <div>
+          <div class="founder-stat-num">6<span>yr</span></div>
+          <div class="founder-stat-lbl">CRO experience</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CONTRAST SPLIT ─── -->
+<div class="contrast-split rr-sc">
+  <div class="cs-dark">
+    <div>
+      <div class="cs-dark-eyebrow">Our approach</div>
+      <div class="cs-dark-h">We speak <em>Liquid.</em><br>We think commerce.</div>
+      <p class="cs-dark-sub">Eight years of Shopify-only work means we know every API quirk, every Liquid edge case, every limitation — and exactly how to work around all of them. We don't dabble in WordPress on the side.</p>
+    </div>
+    <a href="#contact" class="cs-dark-link">Talk to us about your store →</a>
+  </div>
+  <div class="cs-terra">
+    <div class="cs-terra-big">08</div>
+    <div>
+      <div class="cs-terra-text">Years of pure, undivided Shopify focus — nothing else.</div>
+      <div class="cs-terra-sub">Certified Partner · Hydrogen ready · Shopify Plus experience · Custom App builds</div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── PAST WORK ─── -->
+<section class="past-work section-pad" id="work">
+  <div class="section-header">
+    <h2 class="section-h2 rr-l">60+ projects delivered.<br><em>Zero under Robusco — yet.</em></h2>
+    <div class="rr-r">
+      <p class="section-sub">These are projects delivered by our founders at previous agencies and as senior freelancers. We attribute them honestly — this is real experience, not borrowed credibility.</p>
+      <a href="#contact" class="section-link">Become our first official case study →</a>
+    </div>
+  </div>
+  <div class="past-work-intro">
+    <div class="past-work-intro-icon">"</div>
+    <p>All projects below were <strong>delivered by our founders personally</strong> before Robusco was founded — at agencies and as senior freelancers. We believe in showing real work honestly rather than hiding behind vague claims.</p>
+  </div>
+  <div class="work-grid stag">
+    <div class="wc wc-large">
+      <div class="wc-visual">
+        <div class="wc-bg" style="background:#C0311A;"></div>
+        <div class="wc-overlay"></div>
+        <div class="wc-info">
+          <div class="wc-tags"><span class="wc-tag">Shopify Plus</span><span class="wc-tag">Custom Theme</span><span class="wc-tag">Systems Integration</span></div>
+          <div class="wc-name">DTC Fashion Brand</div>
+          <div class="wc-result">Store rebuilt from scratch — 38% conversion uplift in 6 weeks post-launch</div>
+          <div class="wc-attr">Delivered by Arjun · Previous agency engagement</div>
+        </div>
+      </div>
+      <div class="wc-arrow-btn">↗</div>
+    </div>
+    <div class="wc">
+      <div class="wc-visual">
+        <div class="wc-bg" style="background:#2C4A3E;"></div>
+        <div class="wc-overlay"></div>
+        <div class="wc-info">
+          <div class="wc-tags"><span class="wc-tag">Shopify Plus</span><span class="wc-tag">B2B Wholesale</span></div>
+          <div class="wc-name">Health Supplements B2B</div>
+          <div class="wc-result">Full B2B wholesale portal — 200+ trade accounts onboarded</div>
+          <div class="wc-attr">Delivered by Arjun · Freelance</div>
+        </div>
+      </div>
+      <div class="wc-arrow-btn">↗</div>
+    </div>
+    <div class="wc">
+      <div class="wc-visual">
+        <div class="wc-bg" style="background:#3D3278;"></div>
+        <div class="wc-overlay"></div>
+        <div class="wc-info">
+          <div class="wc-tags"><span class="wc-tag">CRO</span><span class="wc-tag">Analytics</span></div>
+          <div class="wc-name">Lifestyle Accessories Brand</div>
+          <div class="wc-result">1.2% → 3.4% conversion rate — via checkout redesign & A/B testing</div>
+          <div class="wc-attr">Delivered by Priya · Previous agency engagement</div>
+        </div>
+      </div>
+      <div class="wc-arrow-btn">↗</div>
+    </div>
+    <div class="wc">
+      <div class="wc-card-body">
+        <div class="wc-card-tags"><span class="wc-card-tag">Magento Migration</span><span class="wc-card-tag">Shopify</span></div>
+        <div class="wc-card-name">Outdoor & Sports Retailer</div>
+        <div class="wc-card-result">Migrated in 4 weeks — zero downtime, zero lost orders</div>
+        <div class="wc-card-attr">Delivered by Arjun · Previous agency engagement</div>
+      </div>
+      <div class="wc-card-fill" style="background:#EDE8DF;"></div>
+      <div class="wc-arrow-btn" style="top:auto;bottom:14px;">→</div>
+    </div>
+    <div class="wc" style="border-right:none;">
+      <div class="wc-card-body">
+        <div class="wc-card-tags"><span class="wc-card-tag">Hydrogen</span><span class="wc-card-tag">Headless</span></div>
+        <div class="wc-card-name">Premium Beauty Brand</div>
+        <div class="wc-card-result">98 Lighthouse score on launch — headless on Oxygen</div>
+        <div class="wc-card-attr">Delivered by Arjun · Freelance engagement</div>
+      </div>
+      <div class="wc-card-fill" style="background:#F0EAF5;"></div>
+      <div class="wc-arrow-btn" style="top:auto;bottom:14px;">→</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SERVICES ─── -->
+<section class="services section-pad" id="services">
+  <div class="section-header">
+    <h2 class="section-h2 rr-l">Every Shopify service your brand needs</h2>
+    <p class="section-sub rr-r">From custom Liquid theme builds to headless Hydrogen storefronts — all Shopify, all the time. No generalist dabbling.</p>
+  </div>
+  <div class="services-cards stag">
+    <div class="sc sc-1"><div><div class="sc-num">01</div><div class="sc-title">Store Development</div><div class="sc-desc">Full builds in Liquid, Dawn-based or fully bespoke themes. Mobile-first, performance-optimised.</div></div><div class="sc-arrow">↗</div></div>
+    <div class="sc sc-2"><div><div class="sc-num">02</div><div class="sc-title">Shopify Plus</div><div class="sc-desc">Scripts, Flows, B2B portals, multi-market and enterprise-grade builds for high-volume brands.</div></div><div class="sc-arrow">↗</div></div>
+    <div class="sc sc-3"><div><div class="sc-num">03</div><div class="sc-title">Headless Hydrogen</div><div class="sc-desc">React storefronts on Oxygen. Maximum performance scores, complete design freedom.</div></div><div class="sc-arrow">↗</div></div>
+    <div class="sc sc-4"><div><div class="sc-num">04</div><div class="sc-title">Theme Customisation</div><div class="sc-desc">Take any existing Shopify theme further with bespoke Liquid sections, blocks and logic.</div></div><div class="sc-arrow">↗</div></div>
+    <div class="sc sc-5"><div><div class="sc-num">05</div><div class="sc-title">Platform Migration</div><div class="sc-desc">Move from WooCommerce, Magento or BigCommerce to Shopify — zero data loss, zero downtime.</div></div><div class="sc-arrow">↗</div></div>
+    <div class="sc sc-6"><div><div class="sc-num">06</div><div class="sc-title">Custom App Dev</div><div class="sc-desc">Private and public Shopify apps built in Node.js and React. Approved and deployed to the app store.</div></div><div class="sc-arrow">↗</div></div>
+    <div class="sc sc-7"><div><div class="sc-num">07</div><div class="sc-title">CRO Optimisation</div><div class="sc-desc">A/B testing, checkout audits, heatmap analysis. We find why visitors aren't buying — and fix it.</div></div><div class="sc-arrow">↗</div></div>
+    <div class="sc sc-8"><div><div class="sc-num">08</div><div class="sc-title">Free Store Audit</div><div class="sc-desc">A 12-point Shopify audit at no cost. No pitch — just an honest report you keep, regardless.</div></div><div class="sc-arrow">↗</div></div>
+  </div>
+</section>
+
+<!-- ─── AUDIT CTA ─── -->
+<div style="padding:64px 48px;">
+  <div class="audit-cta rr-sc">
+    <div>
+      <div class="audit-cta-eyebrow">No-risk entry point</div>
+      <h3 class="audit-cta-h">Not sure if your store has <em>conversion problems?</em></h3>
+      <p class="audit-cta-sub">We'll audit your Shopify store across 12 points — UX, checkout flow, performance, mobile experience, app stack, SEO structure — and send you a written report. No pitch at the end. No obligation. You keep the report regardless of what you decide.</p>
+    </div>
+    <div class="audit-cta-right">
+      <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Claim your free audit →</button>
+      <span class="audit-note">Takes 48hrs · No credit card · No commitment</span>
+    </div>
+  </div>
+</div>
+
+<!-- ─── COMPARISON TABLE ─── -->
+<section class="compare">
+  <div class="section-header">
+    <h2 class="section-h2 rr-l">What you get that you won't get at a <em>bigger agency</em></h2>
+    <p class="section-sub rr-r">We built Robusco after years of watching large agencies overpromise, underdeliver, and charge for project managers you never meet. This is what we do differently.</p>
+  </div>
+  <table class="compare-table rr" style="margin-top:0;">
+    <thead>
+      <tr>
+        <th>The situation</th>
+        <th>At a large agency</th>
+        <th>At Robusco</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Who builds your store</td>
+        <td><span class="cross">✕</span>Junior developers handed your brief</td>
+        <td><span class="check">✓</span>Founders write your code, personally</td>
+      </tr>
+      <tr>
+        <td>Discovery & onboarding</td>
+        <td><span class="cross">✕</span>6–8 week discovery phases billed at day rate</td>
+        <td><span class="check">✓</span>Free audit + proposal within 5 business days</td>
+      </tr>
+      <tr>
+        <td>Communication</td>
+        <td><span class="cross">✕</span>Account managers as middlemen between you and devs</td>
+        <td><span class="check">✓</span>Direct Slack with the person building your store</td>
+      </tr>
+      <tr>
+        <td>Engagement model</td>
+        <td><span class="cross">✕</span>Locked into 12-month retainers before seeing results</td>
+        <td><span class="check">✓</span>Project-based first — earn trust before a retainer</td>
+      </tr>
+      <tr>
+        <td>Shopify depth</td>
+        <td><span class="cross">✕</span>Generalist teams who also do WordPress and Webflow</td>
+        <td><span class="check">✓</span>Shopify-only. Every day, every project, for 8 years</td>
+      </tr>
+      <tr>
+        <td>Post-launch support</td>
+        <td><span class="cross">✕</span>Support tickets routed to whoever is available</td>
+        <td><span class="check">✓</span>Same founders who built it maintain it</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ─── PROCESS ─── -->
+<section class="process section-pad">
+  <div class="section-header">
+    <h2 class="section-h2 rr-l">How a project with Robusco <em>actually works</em></h2>
+    <p class="section-sub rr-r">Straightforward, honest, and fast. We've cut out everything that large agencies charge for but don't actually add value.</p>
+  </div>
+  <div class="process-steps stag">
+    <div class="process-step">
+      <div class="ps-num">01</div>
+      <div class="ps-title">Free store audit</div>
+      <p class="ps-desc">You share your store URL and your biggest challenge. We return a 12-point written audit within 48 hours. No call required, no pitch attached.</p>
+      <div class="ps-duration">48 hrs · Free · No commitment</div>
+    </div>
+    <div class="process-step">
+      <div class="ps-num">02</div>
+      <div class="ps-title">Proposal & scope</div>
+      <p class="ps-desc">If the audit reveals clear opportunities, we send a plain-English proposal — scope, timeline, price. No hidden fees, no vague estimates.</p>
+      <div class="ps-duration">3–5 days · Fixed price</div>
+    </div>
+    <div class="process-step">
+      <div class="ps-num">03</div>
+      <div class="ps-title">Strategy & architecture</div>
+      <p class="ps-desc">We map your store structure, integrations and tech stack before touching code — ERPs, payment gateways, subscription apps, all accounted for.</p>
+      <div class="ps-duration">Week 1</div>
+    </div>
+    <div class="process-step">
+      <div class="ps-num">04</div>
+      <div class="ps-title">Design & prototyping</div>
+      <p class="ps-desc">High-fidelity Figma designs, mobile-first, CRO-informed. You approve before a single line of Liquid is written.</p>
+      <div class="ps-duration">Weeks 1–2</div>
+    </div>
+    <div class="process-step">
+      <div class="ps-num">05</div>
+      <div class="ps-title">Build & QA</div>
+      <p class="ps-desc">Development, cross-browser QA, performance optimisation and pre-launch checklist. Staged environment before anything goes live.</p>
+      <div class="ps-duration">Weeks 2–5</div>
+    </div>
+    <div class="process-step">
+      <div class="ps-num">06</div>
+      <div class="ps-title">Launch & growth</div>
+      <p class="ps-desc">Launch with the founders watching the data live. Post-launch CRO, A/B testing and ongoing optimisation available on a retainer.</p>
+      <div class="ps-duration">Ongoing</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SOCIAL PROOF / PLACEHOLDER ─── -->
+<section class="social-proof">
+  <div class="proof-note rr-sc">
+    <div class="proof-note-h">We're building our first official reviews — and we want you in them.</div>
+    <p class="proof-note-sub">Robusco is new as a company, and we won't pretend otherwise. But our founders have real results from real clients — and we're now taking on our founding cohort. A small group of brands we'll work with closely, at full dedication, to build the case studies this site deserves.</p>
+    <div class="proof-note-cta">
+      <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Join the founding cohort →</button>
+    </div>
+  </div>
+  <div class="proof-slots stag">
+    <div class="proof-slot">
+      <div>
+        <div class="proof-slot-q">"</div>
+        <p class="proof-slot-placeholder">This space is reserved for our first official client review. It'll be here soon — and it'll be earned.</p>
+      </div>
+      <span class="proof-slot-badge">Review incoming</span>
+    </div>
+    <div class="proof-slot">
+      <div>
+        <div class="proof-slot-q">"</div>
+        <p class="proof-slot-placeholder">We're working with our founding cohort right now. If you want a review slot with your name on it, get in touch.</p>
+      </div>
+      <span class="proof-slot-badge">Founding client slot</span>
+    </div>
+    <div class="proof-slot">
+      <div>
+        <div class="proof-slot-q">"</div>
+        <p class="proof-slot-placeholder">No fabricated quotes. No borrowed credibility. Just real results from real projects — coming soon.</p>
+      </div>
+      <span class="proof-slot-badge">Coming soon</span>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CREDENTIALS ─── -->
+<div class="credentials rr">
+  <div class="cred-inner">
+    <div class="cred-label">Credentials</div>
+    <div class="cred-divider"></div>
+    <div class="cred-list stag">
+      <div class="cred-pill"><strong>Shopify</strong>Certified Partner</div>
+      <div class="cred-pill"><strong>Shopify Plus</strong>Delivery experience</div>
+      <div class="cred-pill"><strong>Hydrogen</strong>Headless ready</div>
+      <div class="cred-pill"><strong>Clutch</strong>Profile verified</div>
+      <div class="cred-pill"><strong>DesignRush</strong>Listed agency</div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── CONTACT ─── -->
+<section class="contact" id="contact">
+  <div class="section-header">
+    <h2 class="section-h2 rr-l">Start with a <em>free audit.</em><br>No strings attached.</h2>
+    <p class="section-sub rr-r">Share your store URL and the one thing frustrating you most about it. We'll send back a written audit within 48 hours — regardless of whether we work together.</p>
+  </div>
+  <div class="contact-inner rr-sc">
+    <div class="contact-left">
+      <div class="contact-eyebrow">Get in touch</div>
+      <h3 class="contact-h">Let's talk about your <em>store.</em></h3>
+      <p class="contact-sub">We're taking on a small number of founding clients right now. If you want founders on your project — not juniors — and a partner who knows Shopify as well as anyone — this is the right time.</p>
+      <div class="contact-detail">
+        <div class="contact-detail-item">
+          <span class="cd-label">Email</span>
+          <span class="cd-val">hello@robusco.com</span>
+        </div>
+        <div class="contact-detail-item">
+          <span class="cd-label">Response</span>
+          <span class="cd-val">Within 24 hours, always</span>
+        </div>
+        <div class="contact-detail-item">
+          <span class="cd-label">Audit</span>
+          <span class="cd-val">Free 12-point report, 48hrs</span>
+        </div>
+        <div class="contact-detail-item">
+          <span class="cd-label">Based</span>
+          <span class="cd-val">Remote-first · Worldwide</span>
+        </div>
+      </div>
+    </div>
+    <div class="contact-right">
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Your name</label>
+          <input type="text" class="form-input" placeholder="Jane Smith">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email address</label>
+          <input type="email" class="form-input" placeholder="jane@yourbrand.com">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Your Shopify store URL</label>
+        <input type="url" class="form-input" placeholder="yourbrand.myshopify.com">
+      </div>
+      <div class="form-group">
+        <label class="form-label">What's your biggest challenge right now?</label>
+        <textarea class="form-textarea" placeholder="E.g. Our conversion rate is stuck at 1.2% and we can't figure out why. We're on Shopify Basic and thinking about a full rebuild..."></textarea>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Approximate project budget</label>
+        <select class="form-select">
+          <option value="" disabled selected>Select a range</option>
+          <option>Under £5,000</option>
+          <option>£5,000 – £15,000</option>
+          <option>£15,000 – £30,000</option>
+          <option>£30,000 – £60,000</option>
+          <option>£60,000+</option>
+          <option>Not sure yet</option>
+        </select>
+      </div>
+      <button class="form-submit">Send message — we'll reply within 24 hours →</button>
+      <p class="form-note">Or just email us at hello@robusco.com — no forms, no fuss. Either way we reply within 24 hours.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<div style="padding-top:88px;">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo">Robu<span>sco</span></div>
+      <p class="footer-tagline">A new Shopify agency built by founders with 60+ projects behind them. No overhead. No juniors. Total focus on your store.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Services</div>
+      <ul class="footer-col-links">
+        <li><a href="#">Store Development</a></li>
+        <li><a href="#">Shopify Plus</a></li>
+        <li><a href="#">Headless Hydrogen</a></li>
+        <li><a href="#">Theme Customisation</a></li>
+        <li><a href="#">Platform Migration</a></li>
+        <li><a href="#">CRO Optimisation</a></li>
+        <li><a href="#">Custom App Dev</a></li>
+        <li><a href="#">Free Store Audit</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Industries</div>
+      <ul class="footer-col-links">
+        <li><a href="#">Fashion & Apparel</a></li>
+        <li><a href="#">Health & Wellness</a></li>
+        <li><a href="#">Beauty & Skincare</a></li>
+        <li><a href="#">Food & Drink</a></li>
+        <li><a href="#">Sport & Fitness</a></li>
+        <li><a href="#">B2B Wholesale</a></li>
+        <li><a href="#">Electronics</a></li>
+        <li><a href="#">Lifestyle & Home</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Company</div>
+      <ul class="footer-col-links">
+        <li><a href="#">About us</a></li>
+        <li><a href="#">Meet the founders</a></li>
+        <li><a href="#">Our work</a></li>
+        <li><a href="#">Insights & blog</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Free store audit</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2025 Robusco Ltd. · Built on Shopify. Built for Growth. · Shopify Certified Partner</div>
+    <div class="footer-legal">
+      <a href="#">Privacy policy</a>
+      <a href="#">Terms & conditions</a>
+      <a href="#">Cookie settings</a>
+    </div>
+  </div>
+</div>
+
+<!-- ─── SCROLL ANIMATION SCRIPT ─── -->
+<script>
+(function(){
+  const selectors = '.rr,.rr-l,.rr-r,.rr-sc,.stag';
+  const els = document.querySelectorAll(selectors);
+
+  const io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        e.target.classList.add('in');
+      } else {
+        e.target.classList.remove('in');
+      }
+    });
+  },{threshold:0.07, rootMargin:'0px 0px -40px 0px'});
+
+  els.forEach(function(el){ io.observe(el); });
+
+  // Hero elements animate in on page load
+  document.querySelectorAll('.hero-left, .hero-right, .accent-band').forEach(function(el, i){
+    setTimeout(function(){ el.classList.add('in'); }, i * 150);
+  });
+})();
+</script>
+
+</body>
+</html>
